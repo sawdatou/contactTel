@@ -1,0 +1,106 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Contact App</title>
+    <link rel="stylesheet" href="lib/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <div data-role="page" id="Liste">
+        <div data-role="header">
+            <h2>Contact Tel</h2>
+        </div>
+        <div role="main" class="ui-content">
+            <div>
+                 <a href="#new" data-role="button" data-inline="true" data-transition="flip" class="ui-link ui-btn ui-icon-plus ui-btn-icon-right ui-shadow ui-corner-all" role="button">Ajouter</a>
+            </div>
+            <div>
+                <h1>Liste Contact</h1>
+                <ul id="contactList" data-role="listview" data-filter-placeholder="Rechercher des contacts" data-inset="true" data-filter="true" data-autodividers="true">
+                </ul>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <label>Sawdatou Sall MIABD @Novembre 2022</label>
+        </div>
+    </div>
+
+    <div data-role="page" id="new">
+        <div data-role="header">
+            <a href="#Liste" class="ui-btn ui-icon-back ui-btn-icon-left">Retour</a>
+            <h1>Ajouter un nouveau Contact</h1>
+        </div>
+        <div role="main">
+            <label for="newContact">Nouveau Contact </label>
+            <input type="text" id="nom" class="cont" placeholder="Nom"  required="yes">
+            <input type="text" id="prenom" placeholder="Prenom" required="yes">
+            <input type="text" id="num" placeholder="Numero" required="true">
+            <input type="text" id="email" placeholder="Email">
+            <a href="#confirmation" data-role="button" data-inline="true" data-transition="flip" class="ui-link ui-btn ui-shadow ui-corner-all" role="button" onclick="addContact()">Ajouter</a>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <label>Sawdatou Sall MIABD @Novembre 2022</label>
+        </div>
+    </div>
+
+    <div data-role="dialog" id="confirmation" tabindex="0" class="ui-page ui-page-theme-a ui-dialog" >
+        <div role="dialog" class="ui-dialog-contain ui-overlay-shadow ui-corner-all">
+            <div data-role="header" role="banner" class="ui-header">
+                <h1 class="ui-title" role="heading" aria-level="1">Contact Ajouté</h1> 
+            </div>           
+        </div> 
+
+        <div data-role="content" class="ui-content ui-body-a" role="main">  
+            <p id="ajout">Votre contact a été ajouté avec succès.</p>
+            <p>
+                <a href="#Liste" data-role="button" data-transition="slideup" class="ui-link ui-btn ui-shadow ui-corner-all ui-btn-inline" role="button">Voir le répertoire</a>
+            </p> 
+        </div> 
+    </div>
+
+    <div data-role="page" id="infos">
+        <div data-role="header">
+            <a href="#Liste" class="ui-btn ui-icon-back ui-btn-icon-left">Retour</a>
+            <h1>Infos contact</h1>
+            <a href="#modifier" data-role="button" data-transition="slideup" class="ui-link ui-btn ui-shadow ui-corner-all ui-btn-inline" role="button" onclick="affichermodif()">Modifier</a>
+            <a href="#supprimer" data-role="button" data-transition="slideup" class="ui-link ui-btn ui-shadow ui-corner-all ui-btn-inline" role="button">Supprimer</a>
+        </div>
+        <div role="main" id="more">
+
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <label>Sawdatou Sall MIABD @Novembre 2022</label>
+        </div>        
+    </div>
+    <div data-role="page" id="modifier">
+        <div data-role="header">
+            <a href="#Liste" class="ui-btn ui-icon-back ui-btn-icon-left">Retour</a>
+            <h1>Modifier contact</h1>
+        </div>
+        <div role="main" id="modif">
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <label>Sawdatou Sall MIABD @Novembre 2022</label>
+        </div>        
+    </div>
+    <div data-role="dialog" id="supprimer" tabindex="0" class="ui-page ui-page-theme-a ui-dialog">
+        <div role="dialog" class="ui-dialog-contain ui-overlay-shadow ui-corner-all">
+            <div data-role="header" role="banner" class="ui-header">
+                <h1 class="ui-title" role="heading" aria-level="1">Suppression contact</h1> 
+            </div>           
+        </div> 
+        <div data-role="content" class="ui-content ui-body-a" role="main">  
+            <p id="sup">Voulez-vous vraiment supprimer ce contact?</p>
+            <p>
+                <a href="#Liste" data-role="button" data-transition="slideup" class="ui-link ui-btn ui-shadow ui-corner-all ui-btn-inline" role="button">Annuler</a>
+                <a href="#Liste" data-role="button" data-transition="flip" class="ui-link ui-btn ui-shadow ui-corner-all ui-btn-inline" role="button" onclick="supprimerContact()">Supprimer</a>
+            </p> 
+        </div> 
+    </div>
+</body>
+</html>

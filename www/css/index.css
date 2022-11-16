@@ -1,0 +1,9 @@
+label,h1,#ajout,#supp
+{
+    text-align: center;
+}
+
+div[#confirmation],div[#confirmation]
+{
+	min-height: 694px; 
+}
